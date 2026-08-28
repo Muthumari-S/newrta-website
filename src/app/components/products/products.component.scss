@@ -1,0 +1,127 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+
+.products__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: v.$space-4;
+
+  .section-head { margin-bottom: 0; }
+
+  @include m.respond(md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: v.$space-3;
+  }
+}
+
+.products__nav {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  padding-bottom: v.$space-1;
+}
+
+.products__arrow {
+  @include m.btn-reset;
+  @include m.focus-ring;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1.5px solid v.$color-border-strong;
+  color: v.$white;
+  transition: border-color v.$dur-base v.$ease-standard,
+    background v.$dur-base v.$ease-standard,
+    transform v.$dur-base v.$ease-standard;
+
+  &:hover {
+    border-color: v.$color-primary;
+    background: rgba(23, 194, 174, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &:active { transform: translateY(0); }
+}
+
+.products__track {
+  display: flex;
+  gap: 1rem;
+  margin-top: v.$space-5;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 0.5rem;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+.product-card {
+  @include m.card-surface;
+  position: relative;
+  flex: 0 0 auto;
+  width: min(46%, 300px);
+  scroll-snap-align: start;
+  padding: v.$space-4;
+  transition: transform v.$dur-base v.$ease-out-premium,
+    box-shadow v.$dur-base v.$ease-out-premium;
+  overflow: hidden;
+
+  @include m.respond(xl) { width: min(60%, 300px); }
+  @include m.respond(sm) { width: 84%; }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: v.$shadow-glow;
+
+    .product-card__glow { opacity: 1; }
+  }
+}
+
+.product-card__glow {
+  position: absolute;
+  top: -40%;
+  right: -30%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 165, 149, 0.22), transparent 70%);
+  opacity: 0;
+  transition: opacity v.$dur-slow v.$ease-standard;
+}
+
+.product-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.product-card__tagline {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: v.$teal-600;
+  margin-bottom: 0.85rem;
+}
+
+.product-card__desc {
+  font-size: 0.9rem;
+  margin-bottom: v.$space-3;
+}
+
+.product-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: v.$color-primary-dark;
+
+  svg { transition: transform v.$dur-base v.$ease-standard; }
+  &:hover svg { transform: translateX(3px); }
+}

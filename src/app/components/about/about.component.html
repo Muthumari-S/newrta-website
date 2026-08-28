@@ -1,0 +1,49 @@
+<section id="about" class="section about">
+  <div class="container-app">
+    <div class="about__grid">
+      <div class="about__copy" appReveal>
+        <p class="eyebrow">About NEWṚTA</p>
+        <h2>{{ about.heading }}</h2>
+        <p class="lead-muted">{{ about.body }}</p>
+
+        <div class="about__badge">
+          <app-icon name="star" [size]="18"></app-icon>
+          <span>Your Trusted Partner &mdash; since day one.</span>
+        </div>
+      </div>
+
+      <div class="about__stats" appReveal [revealDelay]="1">
+        <div class="stat-card" *ngFor="let stat of stats">
+          <div class="stat-card__value">
+            <span appAnimatedCounter [countTo]="stat.value" [suffix]="stat.suffix">0</span>
+          </div>
+          <p class="stat-card__label">{{ stat.label }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="core-values" appReveal [revealDelay]="2">
+      <p class="eyebrow">Our Core Values &mdash; C.A.S.T</p>
+      <div class="core-values__grid">
+        <div class="value-card" *ngFor="let value of coreValues; let i = index" [style.--i]="i">
+          <span class="value-card__letter">{{ value.letter }}</span>
+          <h3>{{ value.title }}</h3>
+          <p>{{ value.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="quality-policy" appReveal [revealDelay]="3">
+      <div class="quality-policy__text">
+        <p class="eyebrow">{{ qualityPolicy.heading }}</p>
+        <p class="lead-muted">{{ qualityPolicy.body }}</p>
+      </div>
+      <ul class="quality-policy__list">
+        <li *ngFor="let item of qualityPolicy.commitments">
+          <app-icon name="check" [size]="16"></app-icon>
+          <span>{{ item }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

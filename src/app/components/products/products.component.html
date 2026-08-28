@@ -1,0 +1,37 @@
+<section class="section section-alt products">
+  <div class="container-app">
+    <div class="products__head" appReveal>
+      <div class="section-head">
+        <p class="eyebrow">Our Portfolio</p>
+        <h2>Products built from decades of domain experience</h2>
+        <p class="lead-muted">
+          Four platforms, each purpose-built for a specific operational problem &mdash;
+          not generic software repackaged for a new logo.
+        </p>
+      </div>
+
+      <div class="products__nav">
+        <button type="button" class="products__arrow" (click)="scroll('left')" aria-label="Previous products">
+          <app-icon name="chevron-left" [size]="20"></app-icon>
+        </button>
+        <button type="button" class="products__arrow" (click)="scroll('right')" aria-label="Next products">
+          <app-icon name="chevron-right" [size]="20"></app-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="products__track" #track>
+      <article class="product-card" *ngFor="let product of products; let i = index" appReveal
+        [revealDelay]="(i % 4) + 1">
+        <div class="product-card__glow" aria-hidden="true"></div>
+        <h3>{{ product.name }}</h3>
+        <p class="product-card__tagline">{{ product.tagline }}</p>
+        <p class="product-card__desc">{{ product.description }}</p>
+        <a href="#contact" class="product-card__link">
+          Contact Us
+          <app-icon name="arrow-right" [size]="15"></app-icon>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>

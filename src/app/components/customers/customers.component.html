@@ -1,0 +1,37 @@
+<section id="customers" class="section customers">
+  <div class="container-app">
+    <div class="section-head center" appReveal>
+      <p class="eyebrow">Some Of Our Proud Customers</p>
+      <h2>Trusted by government bodies and enterprises alike</h2>
+    </div>
+
+    <div class="customers__grid" appReveal [revealDelay]="1">
+      <div class="customer-card" *ngFor="let customer of customers">
+        <span class="customer-card__mark">
+          <img *ngIf="customer.logo" [src]="customer.logo" [alt]="customer.name" />
+          <app-icon *ngIf="!customer.logo" name="building" [size]="25"></app-icon>
+        </span>
+        <div>
+          <strong>{{ customer.name }}</strong>
+          <small>{{ customer.location }}</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="partners" appReveal [revealDelay]="2">
+      <p class="eyebrow">Our Partnership Eco-System</p>
+      <div class="partners__list">
+        <div class="partner-card" *ngFor="let partner of partners">
+          <span class="partner-card__mark">
+            <img *ngIf="partner.logo" [src]="partner.logo" [alt]="partner.name" />
+            <app-icon *ngIf="!partner.logo" name="handshake" [size]="25"></app-icon>
+          </span>
+          <div>
+            <strong>{{ partner.name }}</strong>
+            <small>{{ partner.location }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

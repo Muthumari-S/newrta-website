@@ -1,0 +1,50 @@
+<section id="verticals" class="section verticals">
+  <div class="container-app">
+    <div class="verticals__head" appReveal>
+      <div class="section-head">
+        <p class="eyebrow">Industries We Support</p>
+        <h2>Our solutions for your business growth</h2>
+        <p class="lead-muted">
+          Three decades of domain depth across trade, government, health and education &mdash;
+          translated into products and platforms built for each industry's real workflow.
+        </p>
+      </div>
+
+      <div class="verticals__nav">
+        <button type="button" class="verticals__arrow" (click)="scroll('left')" aria-label="Previous industry">
+          <app-icon name="chevron-left" [size]="20"></app-icon>
+        </button>
+        <button type="button" class="verticals__arrow" (click)="scroll('right')" aria-label="Next industry">
+          <app-icon name="chevron-right" [size]="20"></app-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="verticals__track" #track appReveal [revealDelay]="1">
+<article class="vertical-card" *ngFor="let vertical of verticals">
+
+  <div class="vertical-card__head">
+
+    <div class="vertical-card__content">
+      <p class="vertical-card__tag">{{ vertical.tag }}</p>
+      <h3>{{ vertical.title }}</h3>
+    </div>
+
+    <span class="vertical-card__icon">
+      <app-icon [name]="vertical.icon" [size]="40"></app-icon>
+    </span>
+
+  </div>
+
+  <p class="vertical-card__summary">{{ vertical.summary }}</p>
+
+  <div class="vertical-card__chips">
+    <span class="chip" *ngFor="let solution of vertical.solutions">
+      {{ solution.name }}
+    </span>
+  </div>
+
+</article>
+    </div>
+  </div>
+</section>

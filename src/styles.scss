@@ -1,0 +1,172 @@
+// =========================================================
+// NEWRTA — Global Styles (v2, dark premium theme)
+// Bootstrap supplies grid/layout utilities only.
+// =========================================================
+
+@use 'styles/variables' as v;
+@use 'styles/mixins' as m;
+@use 'styles/animations';
+
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+@import 'bootstrap/scss/mixins';
+@import 'bootstrap/scss/reboot';
+@import 'bootstrap/scss/grid';
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/utilities';
+@import 'bootstrap/scss/utilities/api';
+
+:root {
+  color-scheme: dark;
+}
+
+* , *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  font-family: v.$font-body;
+  font-size: v.$fs-body;
+  line-height: v.$lh-body;
+  color: v.$color-text;
+  background: v.$color-bg;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: v.$font-display;
+  font-weight: 800;
+  line-height: v.$lh-heading;
+  color: v.$white;
+  margin: 0 0 v.$space-2;
+  letter-spacing: -0.015em;
+}
+
+h1 { font-size: v.$fs-h1; line-height: v.$lh-tight; }
+h2 { font-size: v.$fs-h2; line-height: v.$lh-tight; }
+h3 { font-size: v.$fs-h3; font-weight: 700; }
+
+p { margin: 0 0 v.$space-3; color: v.$color-text-muted; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img { max-width: 100%; display: block; }
+
+::selection {
+  background: rgba(23, 194, 174, 0.3);
+  color: v.$white;
+}
+
+.container-app {
+  @include m.container;
+}
+
+.section {
+  @include m.section-pad;
+  position: relative;
+}
+
+.section-alt {
+  background: v.$color-surface;
+}
+
+.eyebrow { @include m.eyebrow; }
+
+// ---- Buttons: solid, flat, no gradients ----
+.btn-primary-brand {
+  @include m.btn-reset;
+  @include m.focus-ring;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.78rem 1.5rem;
+  border-radius: v.$radius-pill;
+  background: v.$color-primary;
+  color: v.$navy-950;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: background v.$dur-base v.$ease-out-premium,
+    transform v.$dur-base v.$ease-out-premium,
+    box-shadow v.$dur-base v.$ease-out-premium;
+
+  &:hover {
+    background: v.$color-primary-strong;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(23, 194, 174, 0.25);
+  }
+
+  &:active { transform: translateY(0); }
+
+  svg { transition: transform v.$dur-base v.$ease-standard; }
+  &:hover svg { transform: translateX(3px); }
+}
+
+.btn-ghost-brand {
+  @include m.btn-reset;
+  @include m.focus-ring;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  border-radius: v.$radius-pill;
+  border: 1.5px solid v.$color-border-strong;
+  color: v.$white;
+  font-weight: 600;
+  font-size: 0.92rem;
+  background: transparent;
+  transition: border-color v.$dur-base v.$ease-standard,
+    background v.$dur-base v.$ease-standard,
+    transform v.$dur-base v.$ease-standard;
+
+  &:hover {
+    border-color: v.$color-primary;
+    background: rgba(23, 194, 174, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: v.$space-5;
+
+  &.center { margin-inline: auto; text-align: center; }
+
+  h2 { margin-top: v.$space-1; }
+  p.lead-muted {
+    font-size: v.$fs-lead;
+    color: v.$color-text-muted;
+    margin-bottom: 0;
+  }
+}
+
+.mesh-backdrop {
+  position: absolute;
+  inset: 0;
+  background: v.$gradient-mesh;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-alt {
+  background: v.$color-surface;
+}
+
+// Offset anchor-scroll targets so the fixed header never overlaps the heading
+section[id] {
+  scroll-margin-top: 50px;
+
+  @include m.respond(lg) {
+    scroll-margin-top: 44px;
+  }
+}

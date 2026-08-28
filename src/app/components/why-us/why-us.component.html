@@ -1,0 +1,23 @@
+<section class="section why-us">
+  <div class="container-app">
+    <div class="section-head center" appReveal>
+      <p class="eyebrow">Why NEWṚTA</p>
+      <h2>Five reasons partners choose to stay with us</h2>
+    </div>
+
+    <div class="why-us__list">
+      <div
+        class="reason-row"
+        *ngFor="let reason of reasons; let i = index"
+        appReveal
+        [revealDelay]="(i % 6) + 1"
+      >
+        <span class="reason-row__index">{{ reason.index }}</span>
+        <div class="reason-row__body">
+          <h3>{{ reason.title }}</h3>
+          <p>{{ reason.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

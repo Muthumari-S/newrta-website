@@ -1,0 +1,52 @@
+<header class="site-header" [class.is-scrolled]="isScrolled">
+  <div class="container-app site-header__bar">
+    <a href="#top" class="brand" (click)="closeMenu()">
+      <img src="assets/images/logo.png" alt="NEWṚTA" class="brand__logo" />
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      <a
+        *ngFor="let link of links"
+        [href]="'#' + link.fragment"
+        class="nav-link"
+        [class.is-active]="link.fragment === activeFragment"
+      >
+        {{ link.label }}
+      </a>
+    </nav>
+
+    <div class="site-header__actions">
+      <a href="#contact" class="btn-ghost-brand nav-cta-secondary">Contact</a>
+      <a href="#contact" class="btn-primary-brand nav-cta-primary">
+        Request a Demo
+        <app-icon name="arrow-right" [size]="16"></app-icon>
+      </a>
+
+      <button
+        type="button"
+        class="menu-toggle"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="isMenuOpen"
+        aria-label="Toggle navigation menu"
+      >
+        <app-icon [name]="isMenuOpen ? 'close' : 'menu'" [size]="22"></app-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav-mobile" [class.is-open]="isMenuOpen">
+    <a
+      *ngFor="let link of links"
+      [href]="'#' + link.fragment"
+      class="nav-mobile__link"
+      [class.is-active]="link.fragment === activeFragment"
+      (click)="closeMenu()"
+    >
+      {{ link.label }}
+    </a>
+    <a href="#contact" class="nav-mobile__link" (click)="closeMenu()">Contact</a>
+    <a href="#contact" class="btn-primary-brand nav-mobile__cta" (click)="closeMenu()">
+      Request a Demo
+    </a>
+  </div>
+</header>

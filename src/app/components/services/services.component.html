@@ -1,0 +1,42 @@
+<section id="services" class="section section-alt services">
+  <div class="container-app">
+    <div class="section-head center" appReveal>
+      <p class="eyebrow">Products &amp; Services</p>
+      <h2>Everything a modern IT partner should bring</h2>
+      <p class="lead-muted">
+        From building your applications to running your infrastructure &mdash; four
+        capability pillars, each backed by delivery frameworks like CMMi and ISO.
+      </p>
+    </div>
+
+    <div class="services__layout">
+      <div class="services__tabs" appReveal [revealDelay]="1">
+        <button
+          type="button"
+          *ngFor="let service of services; let i = index"
+          class="service-tab"
+          [class.is-active]="i === activeIndex"
+          (click)="setActive(i)"
+        >
+          <span class="service-tab__icon">
+            <app-icon [name]="service.icon" [size]="20"></app-icon>
+          </span>
+          <span class="service-tab__text">
+            <strong>{{ service.title }}</strong>
+            <small>{{ service.summary }}</small>
+          </span>
+        </button>
+      </div>
+
+      <div class="services__panel" appReveal [revealDelay]="2">
+        <div class="service-panel-card" *ngFor="let service of services; let i = index" [class.is-active]="i === activeIndex">
+          <span class="service-panel-card__icon">
+            <app-icon [name]="service.icon" [size]="28"></app-icon>
+          </span>
+          <h3>{{ service.title }}</h3>
+          <p class = "pe-4">{{ service.detail }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

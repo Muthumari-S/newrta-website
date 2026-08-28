@@ -1,0 +1,137 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: v.$space-5;
+  align-items: center;
+  margin-bottom: v.$space-5;
+
+  @include m.respond(lg) {
+    grid-template-columns: 1fr;
+    gap: v.$space-5;
+  }
+}
+
+.about__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: v.$space-4;
+  padding: 0.65rem 1.1rem;
+  border-radius: v.$radius-pill;
+  background: v.$teal-100;
+  color: v.$color-primary-dark;
+  font-weight: 600;
+  font-size: 0.88rem;
+}
+
+.about__stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stat-card {
+  @include m.card-surface;
+  padding: 1.3rem 1.2rem;
+  text-align: left;
+
+  &:hover {
+    border-color: rgba(16, 165, 149, 0.3);
+    box-shadow: v.$shadow-md;
+  }
+}
+
+.stat-card__value {
+  font-family: v.$font-display;
+  font-size: clamp(1.9rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: v.$color-primary-dark;
+  line-height: 1;
+}
+
+.stat-card__label {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: v.$color-text-muted;
+}
+
+// ---- Core Values ----
+.core-values {
+  padding-top: v.$space-5;
+  border-top: 1px solid v.$color-border;
+}
+
+.core-values__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: v.$space-3;
+
+  @include m.respond(lg) { grid-template-columns: repeat(2, 1fr); }
+  @include m.respond(sm) { grid-template-columns: 1fr; }
+}
+
+.value-card {
+  @include m.card-surface;
+  @include m.card-hover-lift;
+  padding: 1.4rem 1.25rem;
+  transition-delay: calc(var(--i, 0) * 40ms);
+}
+
+.value-card__letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: v.$gradient-brand;
+  color: #fff;
+  font-family: v.$font-display;
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+.value-card h3 { margin-bottom: 0.4rem; font-size: 1.05rem; }
+.value-card p { font-size: 0.92rem; margin-bottom: 0; }
+
+// ---- Quality Policy ----
+.quality-policy {
+  margin-top: v.$space-5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: v.$space-4;
+  padding: v.$space-4;
+  border-radius: v.$radius-lg;
+  background: v.$gradient-panel;
+  border: 1px solid v.$color-border;
+  color: v.$white;
+
+  @include m.respond(lg) { grid-template-columns: 1fr; gap: v.$space-4; }
+
+  .eyebrow { color: v.$teal-300; &::before { background: v.$gradient-brand; } }
+  .lead-muted { color: rgba(255, 255, 255, 0.75); margin-bottom: 0; }
+}
+
+.quality-policy__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.88);
+
+    app-icon { color: v.$teal-300; margin-top: 2px; flex-shrink: 0; }
+  }
+}

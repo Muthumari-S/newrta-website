@@ -1,0 +1,66 @@
+<section id="contact" class="section contact">
+  <div class="container-app">
+    <div class="contact__panel" appReveal>
+      <div class="contact__info">
+        <p class="eyebrow eyebrow--light">Get In Touch</p>
+        <h2>Let&rsquo;s start talking about your project</h2>
+        <p class="lead-muted">
+          Tell us about your business and where you want it to go &mdash;
+          we&rsquo;ll help you find the fastest, safest way to get there.
+        </p>
+
+        <ul class="contact__list">
+          <li>
+            <span class="contact__icon"><app-icon name="phone" [size]="18"></app-icon></span>
+            <div>
+              <strong>Phone</strong>
+              <a [href]="'tel:' + contact.phone">{{ contact.phone }}</a>
+            </div>
+          </li>
+          <li>
+            <span class="contact__icon"><app-icon name="mail" [size]="18"></app-icon></span>
+            <div>
+              <strong>Email</strong>
+              <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+            </div>
+          </li>
+          <li>
+            <span class="contact__icon"><app-icon name="pin" [size]="18"></app-icon></span>
+            <div>
+              <strong>Location</strong>
+              <span>{{ contact.address }}</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <form class="contact__form" (ngSubmit)="onSubmit()" *ngIf="!submitted">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name" [(ngModel)]="form.name" required placeholder="Your full name" />
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" [(ngModel)]="form.email" required placeholder="you@company.com" />
+        </div>
+        <div class="form-field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" [(ngModel)]="form.message" required placeholder="Tell us about your project"></textarea>
+        </div>
+        <p class="form-error" *ngIf="errorMessage">{{ errorMessage }}</p>
+        <button type="submit" class="btn-primary-brand contact__submit" [disabled]="sending">
+          {{ sending ? 'Sending...' : 'Send Message' }}
+          <app-icon name="arrow-right" [size]="16"></app-icon>
+        </button>
+      </form>
+
+<div class="contact__success" *ngIf="submitted">
+  <div class="contact__success-text">
+    <h3>Thanks &mdash; message received.</h3>
+    <p>We&rsquo;ve got your details and will be in touch shortly.</p>
+  </div>
+  <span class="contact__success-icon pe-2"><app-icon name="check" [size]="26"></app-icon></span>
+</div>
+    </div>
+  </div>
+</section>

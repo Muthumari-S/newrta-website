@@ -1,0 +1,50 @@
+<footer class="site-footer">
+  <div class="container-app site-footer__top">
+    <div class="footer-brand">
+      <a href="#top" class="brand">
+        <span class="brand__mark" aria-hidden="true">
+          <span class="wave wave--1"></span>
+          <span class="wave wave--2"></span>
+          <span class="wave wave--3"></span>
+        </span>
+        <span class="brand__word">NEW<span class="brand__word--accent">Ṛ</span>TA</span>
+      </a>
+      <p>Possibilities Infinite. Your trusted IT consulting &amp; delivery partner.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a *ngFor="let service of services" href="#services">{{ service.title }}</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a *ngFor="let link of navLinks" [href]="'#' + link.fragment">{{ link.label }}</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Reach Us</h4>
+      <a [href]="'tel:' + contact.phone">
+        <app-icon name="phone" [size]="15"></app-icon>{{ contact.phone }}
+      </a>
+      <a [href]="'mailto:' + contact.email">
+        <app-icon name="mail" [size]="15"></app-icon>{{ contact.email }}
+      </a>
+      <span class="footer-address">
+        <app-icon name="pin" [size]="15"></app-icon>{{ contact.address }}
+      </span>
+    </div>
+  </div>
+
+  <div class="container-app site-footer__bottom">
+    <p>&copy; {{ year }} Newrta Solutions Private Limited. All rights reserved.</p>
+
+    <div class="footer-social">
+      <a *ngFor="let social of socialLinks" [href]="social.url ?? undefined" target="_blank" rel="noopener noreferrer"
+        class="footer-social__link"  [attr.aria-label]="social.label"
+        [attr.aria-disabled]="!social.url" (click)="!social.url && $event.preventDefault()">
+        <app-icon [name]="social.icon" [size]="14"></app-icon>
+      </a>
+    </div>
+  </div>
+</footer>

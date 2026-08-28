@@ -1,0 +1,80 @@
+@use 'variables' as v;
+
+@mixin container {
+  width: 100%;
+  max-width: v.$container-max;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+@mixin section-pad {
+  padding-block: clamp(2.75rem, 5.5vw, 4.5rem);
+}
+
+@mixin eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: v.$font-body;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: v.$teal-400;
+
+  &::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: v.$teal-500;
+  }
+}
+
+@mixin card-surface {
+  background: v.$color-card;
+  border: 1px solid v.$color-border;
+  border-radius: v.$radius-md;
+  box-shadow: v.$shadow-sm;
+  transition: transform v.$dur-base v.$ease-out-premium,
+    box-shadow v.$dur-base v.$ease-out-premium,
+    border-color v.$dur-base v.$ease-out-premium,
+    background v.$dur-base v.$ease-out-premium;
+}
+
+@mixin card-hover-lift {
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: v.$shadow-md;
+    border-color: rgba(23, 194, 174, 0.35);
+    background: v.$color-card-hover;
+  }
+}
+
+@mixin btn-reset {
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  color: inherit;
+}
+
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid v.$color-primary;
+    outline-offset: 3px;
+  }
+}
+
+@mixin respond($bp) {
+  @if $bp == sm { @media (max-width: 575.98px) { @content; } }
+  @else if $bp == md { @media (max-width: 767.98px) { @content; } }
+  @else if $bp == lg { @media (max-width: 991.98px) { @content; } }
+  @else if $bp == xl { @media (max-width: 1199.98px) { @content; } }
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}

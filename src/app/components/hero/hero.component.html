@@ -1,0 +1,103 @@
+<section id="top" class="hero">
+  <div class="hero__backdrop" aria-hidden="true">
+    <div class="mesh-backdrop"></div>
+    <span class="blob blob--1"></span>
+    <span class="blob blob--2"></span>
+    <span class="grid-lines"></span>
+  </div>
+
+  <div class="container-app hero__inner">
+    <div class="hero__copy">
+      <p class="eyebrow" appReveal>Possibilities Infinite</p>
+
+      <h2 class="hero__title mb-3" appReveal [revealDelay]="1">
+        IT consulting and delivery,
+        <span class="hero__rotator" aria-live="polite">
+          <span
+          class="hero__rotator-track"
+          [style.transform]="'translateY(-' + (activeIndex * 1.2) + 'em)'"
+          >
+            <span class="hero__rotator-item" *ngFor="let slide of slides">{{ slide.headline }}</span>
+          </span>
+        </span>
+      </h2>
+
+      <p class="hero__lead" appReveal [revealDelay]="2">
+        NEWṚTA is an IT solution provider engaged in consulting &amp; advisory,
+        systems integration and outsourcing &mdash; built by industry experts with
+        over 30 years of project execution experience across the globe.
+      </p>
+
+      <div class="hero__actions" appReveal [revealDelay]="3">
+        <a href="#contact" class="btn-primary-brand">
+          Talk to Us
+          <app-icon name="arrow-right" [size]="17"></app-icon>
+        </a>
+        <a href="#services" class="btn-ghost-brand">Explore Our Services</a>
+      </div>
+
+      <div class="hero__trustline" appReveal [revealDelay]="4">
+        <span>Trusted across</span>
+        <strong>Logistics</strong>
+        <span class="dot"></span>
+        <strong>eGovernment</strong>
+        <span class="dot"></span>
+        <strong>Healthcare</strong>
+        <span class="dot"></span>
+        <strong>EdTech</strong>
+      </div>
+    </div>
+
+    <div class="hero__visual" appReveal [revealDelay]="2" aria-hidden="true">
+      <div class="hero-graphic">
+        <div class="hero-graphic__glow"></div>
+        <svg viewBox="0 0 390 350" class="hero-graphic__svg">
+          <defs>
+            <linearGradient id="panelGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#142a3c" />
+              <stop offset="100%" stop-color="#0e2130" />
+            </linearGradient>
+          </defs>
+
+          <!-- dashboard card -->
+          <rect x="40" y="40" width="230" height="180" rx="16" fill="url(#panelGrad)" stroke="#1c3a4f" stroke-width="1.5" />
+          <circle cx="62" cy="64" r="4" fill="#ff6b6b" opacity="0.7" />
+          <circle cx="78" cy="64" r="4" fill="#ffd166" opacity="0.7" />
+          <circle cx="94" cy="64" r="4" fill="#17c2ae" opacity="0.9" />
+
+          <!-- bar chart -->
+          <rect x="62" y="150" width="16" height="46" rx="3" fill="#17c2ae" opacity="0.85" />
+          <rect x="88" y="130" width="16" height="66" rx="3" fill="#3fd6c2" opacity="0.7" />
+          <rect x="114" y="110" width="16" height="86" rx="3" fill="#17c2ae" opacity="0.5" />
+          <rect x="140" y="140" width="16" height="56" rx="3" fill="#3fd6c2" opacity="0.85" />
+
+          <!-- line trend -->
+          <polyline points="172,150 195,120 218,135 241,95" fill="none" stroke="#7ee8d8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+          <circle cx="241" cy="95" r="4.5" fill="#7ee8d8" />
+
+          <!-- floating node card -->
+          <rect x="210" y="200" width="130" height="80" rx="14" fill="url(#panelGrad)" stroke="#1c3a4f" stroke-width="1.5" class="hero-graphic__float" />
+          <circle cx="232" cy="224" r="10" fill="#17c2ae" opacity="0.85" />
+          <rect x="250" y="219" width="70" height="6" rx="3" fill="#2b4e64" />
+          <rect x="250" y="231" width="50" height="6" rx="3" fill="#1c3a4f" />
+          <rect x="228" y="246" width="92" height="6" rx="3" fill="#1c3a4f" />
+          <rect x="228" y="258" width="66" height="6" rx="3" fill="#1c3a4f" />
+
+          <!-- connecting nodes / network motif -->
+          <g class="hero-graphic__orbit">
+            <circle cx="320" cy="60" r="5" fill="#3fd6c2" />
+            <circle cx="345" cy="90" r="3.5" fill="#17c2ae" />
+            <circle cx="300" cy="30" r="3" fill="#7ee8d8" />
+            <line x1="320" y1="60" x2="345" y2="90" stroke="#1c3a4f" stroke-width="1.5" />
+            <line x1="320" y1="60" x2="300" y2="30" stroke="#1c3a4f" stroke-width="1.5" />
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <a href="#about" class="hero__scroll-cue" aria-label="Scroll to learn more">
+    <span class="hero__scroll-cue-track"><span class="hero__scroll-cue-dot"></span></span>
+    Scroll
+  </a>
+</section>

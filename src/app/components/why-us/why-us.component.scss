@@ -1,0 +1,48 @@
+@use '../../../styles/variables' as v;
+@use '../../../styles/mixins' as m;
+
+.why-us__list {
+  margin-top: v.$space-5;
+  max-width: 880px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.reason-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: v.$space-4;
+  padding-block: v.$space-4;
+  border-bottom: 1px solid v.$color-border;
+  transition: background v.$dur-base v.$ease-standard, padding-left v.$dur-base v.$ease-standard;
+
+  &:first-child { padding-top: 0; }
+  &:last-child { border-bottom: none; }
+
+  &:hover {
+    padding-left: 0.75rem;
+    background: v.$color-bg-alt;
+  }
+
+  @include m.respond(sm) {
+    grid-template-columns: 56px 1fr;
+  }
+}
+
+.reason-row__index {
+  font-family: v.$font-display;
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1;
+  background: v.$gradient-brand;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0.85;
+
+  @include m.respond(sm) { font-size: 1.6rem; }
+}
+
+.reason-row__body h3 { font-size: 1.1rem; margin-bottom: 0.35rem; }
+.reason-row__body p { margin-bottom: 0; font-size: 0.94rem; }

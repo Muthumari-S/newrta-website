@@ -1,0 +1,40 @@
+<section class="section section-alt case-studies">
+  <div class="container-app">
+    <div class="case-study" appReveal>
+      <div class="case-study__meta">
+        <p class="eyebrow">Case Study &middot; {{ caseStudy.code }}</p>
+        <h2>{{ caseStudy.title }}</h2>
+        <p class="lead-muted">{{ caseStudy.summary }}</p>
+        <div class="case-study__actions">
+          <a href="#contact" class="btn-ghost-brand">
+            <app-icon name="arrow-right" [size]="16"></app-icon>
+            Discuss a similar challenge
+          </a>
+          <a [href]="caseStudy.pdf" download class="case-study__download">
+            <app-icon name="download" [size]="16"></app-icon>
+            Download Case Study (PDF)
+          </a>
+        </div>
+      </div>
+      <div class="case-study__panel">
+        <div class="case-study__ring"></div>
+        <img [src]="caseStudy.logo" [alt]="caseStudy.code" class="case-study__logo" />
+        <p>Remote learning &amp; digital examinations, delivered in weeks &mdash; not semesters.</p>
+      </div>
+    </div>
+
+    <div class="team" appReveal [revealDelay]="1">
+      <p class="eyebrow">Leadership</p>
+      <h2>The people behind the delivery</h2>
+
+      <div class="team__grid">
+        <article class="team-card" *ngFor="let member of team">
+          <span class="team-card__avatar">{{ member.initials }}</span>
+          <h3>{{ member.name }}</h3>
+          <p class="team-card__role">{{ member.role }}</p>
+          <p class="team-card__bio">{{ member.bio }}</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

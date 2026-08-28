@@ -1,0 +1,112 @@
+// =========================================================
+// NEWRTA — Design Tokens (v2)
+// Dark-navy premium theme, Manrope typography.
+// =========================================================
+
+// ---- Color: Brand (from logo) ----
+$teal-900: #063f3a;
+$teal-800: #0a534c;
+$teal-700: #0d6b62;
+$teal-600: #12a394;
+$teal-500: #17c2ae;   // primary brand teal
+$teal-400: #3fd6c2;
+$teal-300: #7ee8d8;
+$teal-100: #d8f7f0;
+
+// ---- Color: Navy surface system ----
+$navy-950: #050c14;   // page background (deepest)
+$navy-900: #081521;   // base section background
+$navy-850: #0a1a28;   // alt section background (subtle step up)
+$navy-800: #0e2130;   // card surface
+$navy-700: #142a3c;   // elevated card / hover surface
+$navy-600: #1c3a4f;   // borders on dark
+$navy-500: #2b4e64;   // stronger borders / dividers
+
+$white: #ffffff;
+$ink-on-dark: rgba(255, 255, 255, 0.92);
+$ink-on-dark-muted: rgba(255, 255, 255, 0.62);
+$ink-on-dark-faint: rgba(255, 255, 255, 0.38);
+
+$gold-500: #e8b64a;   // sparing accent, use rarely
+
+// ---- Semantic ----
+$color-bg: $navy-950;
+$color-bg-alt: $navy-900;
+$color-surface: $navy-850;
+$color-card: $navy-800;
+$color-card-hover: $navy-700;
+$color-text: $ink-on-dark;
+$color-text-muted: $ink-on-dark-muted;
+$color-text-faint: $ink-on-dark-faint;
+$color-primary: $teal-500;
+$color-primary-strong: $teal-400;
+$color-border: $navy-600;
+$color-border-strong: $navy-500;
+
+// ---- Typography ----
+$font-display: 'Manrope', 'Segoe UI', sans-serif;
+$font-body: 'Manrope', 'Segoe UI', sans-serif;
+
+$fs-h1: clamp(2.2rem, 3.6vw, 3.6rem);
+$fs-h2: clamp(1.7rem, 2.5vw, 2.35rem);
+$fs-h3: clamp(1.15rem, 1.5vw, 1.35rem);
+$fs-lead: clamp(1rem, 1.25vw, 1.15rem);
+$fs-leads: clamp(0.95rem, 1.1vw, 1.05rem);
+$fs-body: 0.97rem;
+$fs-small: 0.85rem;
+
+$lh-tight: 1.14;
+$lh-heading: 1.25;
+$lh-body: 1.62;
+
+// ---- Spacing scale (tightened for density) ----
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.9rem;
+$space-4: 1.25rem;
+$space-5: 2rem;
+$space-6: 2.75rem;
+$space-7: 4rem;
+$space-8: 5.5rem;
+
+// ---- Layout ----
+$container-max: 1280px;
+$radius-sm: 10px;
+$radius-md: 14px;
+$radius-lg: 20px;
+$radius-pill: 999px;
+
+// ---- Motion ----
+$ease-out-premium: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+$dur-fast: 160ms;
+$dur-base: 280ms;
+$dur-slow: 480ms;
+
+// ---- Elevation ----
+$shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.28);
+$shadow-md: 0 14px 34px rgba(0, 0, 0, 0.36);
+$shadow-lg: 0 26px 60px rgba(0, 0, 0, 0.46);
+$shadow-glow: 0 0 0 1px rgba(23, 194, 174, 0.22), 0 16px 40px rgba(23, 194, 174, 0.14);
+
+// ---- Gradients (used sparingly — backgrounds/decoration only, never on buttons) ----
+$gradient-brand-text: linear-gradient(100deg, $teal-300, $teal-400 55%, $white);
+$gradient-badge: linear-gradient(135deg, $teal-600, $teal-400);
+$gradient-panel: linear-gradient(160deg, $navy-850 0%, $navy-900 100%);
+$gradient-mesh: radial-gradient(circle at 12% 15%, rgba(23, 194, 174, 0.14), transparent 42%),
+  radial-gradient(circle at 88% 10%, rgba(63, 214, 194, 0.10), transparent 38%),
+  radial-gradient(circle at 50% 100%, rgba(23, 194, 174, 0.08), transparent 48%);
+
+// ---- Legacy aliases (kept so older component partials resolve cleanly) ----
+$color-primary-dark: $teal-400;
+$gradient-brand: $gradient-badge;
+$gradient-dark: $gradient-panel;
+$paper-0: $color-card;
+$paper-50: $color-surface;
+$paper-100: $color-card;
+$ink-900: $white;
+$ink-800: $color-text;
+$ink-700: $color-text;
+$ink-600: $color-text-muted;
+$ink-400: $color-text-muted;
+$teal-100: rgba(23, 194, 174, 0.12);

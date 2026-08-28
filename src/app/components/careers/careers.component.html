@@ -1,0 +1,44 @@
+<section id="careers" class="section section-alt careers">
+  <div class="container-app">
+    <div class="section-head center" appReveal>
+      <p class="eyebrow">Careers &#64;NEWṚTA</p>
+      <h2>Join our passionate team</h2>
+      <p class="lead-muted">
+        We're growing our Madurai team &mdash; here's what's currently open.
+      </p>
+    </div>
+
+    <div class="jobs__grid">
+      <article
+        class="job-card"
+        *ngFor="let job of jobs; let i = index"
+        appReveal
+        [revealDelay]="i + 1"
+      >
+        <div class="job-card__head">
+          <h3>{{ job.title }}</h3>
+          <span class="job-card__badge">{{ job.openings }} opening{{ job.openings !== '1' ? 's' : '' }}</span>
+        </div>
+
+        <div class="job-card__meta">
+          <span><app-icon name="pin" [size]="14"></app-icon>{{ job.location }}</span>
+          <span><app-icon name="building" [size]="14"></app-icon>{{ job.type }}</span>
+        </div>
+
+        <p class="job-card__education">{{ job.education }}</p>
+
+        <ul class="job-card__list">
+          <li *ngFor="let req of job.requirements">
+            <app-icon name="check" [size]="14"></app-icon>
+            <span>{{ req }}</span>
+          </li>
+        </ul>
+<!-- 
+        <a [href]="'mailto:' + contact.email + '?subject=Application: ' + job.title" class="btn-ghost-brand job-card__apply">
+          Send Your Resume
+          <app-icon name="arrow-right" [size]="15"></app-icon>
+        </a> -->
+      </article>
+    </div>
+  </div>
+</section>
